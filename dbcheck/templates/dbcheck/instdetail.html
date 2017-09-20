@@ -1,0 +1,32 @@
+{% extends 'dbcheck/base.html' %}
+{% block content %}
+
+	<div id="page" class="container">
+		<div class="column1">
+			<div class="title">
+				<h2>{{inst.servername}}//{{ inst.instancename }} 전역변수 리스트</h2>
+				<span class="byline">{{inst.servername}}//{{ inst.instancename }} global variables list</span>
+			</div>
+
+            <div>
+                <table>
+                <tr>
+                    <th style="width:300px">파라미터명</th>
+                    <th style="width:800px">설정값</th>
+                </tr>
+                {% for row in globalvar %}
+                    <tr>
+                    {%  for value in row %}
+                        <td>{{ value }}</td>
+                    {%  endfor %}
+                    </tr>
+                {% endfor %}
+                </table>
+            </div>
+
+			<a href="#" class="button">Etiam posuere</a>
+		</div>
+
+	</div>
+
+{% endblock %}
