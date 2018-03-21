@@ -22,6 +22,7 @@ def dbcheck_main(request):
     for inst in Instance.objects.all() :
         try:
             sql = "show slave status"
+            '''sql = "select round(sum(data_length + index_length)/1024/1024/1024) as Gb from information_schema.tables"'''
             conn = pymysql.connect(host=str(inst.ipaddr), port=int(inst.port), user='kic', password='dhtkak', db='mysql',charset='utf8')
             curs = conn.cursor()
             slavestatus = curs.execute(sql)
